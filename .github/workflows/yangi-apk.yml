@@ -1,7 +1,9 @@
 name: Drive orqali AAB dan APK yasash
 
 on:
-  workflow_dispatch:
+  push:
+    branches: [ main ]
+    
 
 jobs:
   convert:
