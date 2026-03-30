@@ -3,7 +3,7 @@ name: Drive orqali AAB dan APK yasash
 on:
   push:
     branches: [ main ]
-    
+  workflow_dispatch:
 
 jobs:
   convert:
@@ -19,10 +19,11 @@ jobs:
       - name: Bundletool yuklash
         run: wget https://github.com/google/bundletool/releases/download/1.17.0/bundletool-all-1.17.0.jar -O bundletool.jar
 
+      - name: Maxsus yuklovchini o'rnatish
+        run: pip install gdown
+
       - name: AAB faylni Drive'dan tortib olish
-        run: |
-          FILE_ID="1D8E8eY8ZjM-qE_ZZC_R9c570COx2RfWN"
-          wget --no-check-certificate 'https://docs.google.com/uc?export=download&id='${FILE_ID} -O my_app.aab
+        run: gdown "1D8E8eY8ZjM-qE_ZZC_R9c570COx2RfWN" -O my_app.aab
 
       - name: APK yaratish
         run: |
